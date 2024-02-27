@@ -75,7 +75,7 @@
                                 {
                                     $id = $_GET['id'];
                                     
-                                    $project = getByID("projects",$id);  
+                                    $project = getByID("projectx",$id);  
 
                                     if (mysqli_num_rows($project) > 0)                                            
                                     {

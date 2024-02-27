@@ -75,7 +75,7 @@
                                 {
                                     $id = $_GET['id'];
                                     
-                                    $project = getByID("projects",$id);  
+                                    $project = getByID("projectx",$id);  
 
                                     if (mysqli_num_rows($project) > 0)                                            
                                     {
@@ -112,7 +112,7 @@
                                                         </div>                                                                                                                                                     
                                                     </div>   
                                                     <div class="col-xl-12 col-lg-12 col-md-12">
-                                                        <button type="submit" name="delete_project_btn" class="btn btn-primary">Delete Project</button>
+                                                        <button type="submit" name="delete_donation_project_btn" class="btn btn-primary">Delete Project</button>
                                                     </div>                                     
                                                 </div>
                                             </div>

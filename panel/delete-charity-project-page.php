@@ -7,14 +7,14 @@
 <html lang="en">
 
 <head>
-    <!-- Meta Tag -->
-    <meta charset="utf-8">
+   <!-- Meta Tag -->
+   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="real estate, property, property search, agent, apartments, booking, business, idx, housing, real estate agency, rental">
     <meta name="author" content="unicoder">
-    <title>Sahaad Empowerment Foundation - Edit Projects</title>
-    <!-- Favicon --> 
+    <title>Sahaad Empowerment Foundation - Delete Charity Project</title>
+    <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.png">
 
     <!-- Google Font -->
@@ -44,8 +44,6 @@
     <!-- AlertifyJS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -69,7 +67,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="my-3">Edit Project</h3>
+                                    <h3 class="my-3">Delete Charity Project</h3>
                                 </div>
                             </div>
                             <?php 
@@ -88,7 +86,7 @@
                                             <div class="col mb-30">
                                                 <div class="border rounded bg-white p-30">
                                                     <h4 class="mb-4">Basic Information</h4>                                        
-                                                    <div class="row">                                                        
+                                                    <div class="row">
                                                         <div class="col-md-12 mb-20">
                                                             <label class="mb-2 font-fifteen font-500">Project Title</label>
                                                             <input class="form-control" name="title" value="<?= $data['title']; ?>" required type="text">
@@ -130,26 +128,11 @@
                                                                     ?>
                                                                 </div>
                                                             </div>
-                                                        </div>                                                                                                                    
-
-                                                        <div class="row">       
-                                                            <div class="col mb-30 mt-30">
-                                                                <div class="border rounded bg-white p-30">
-                                                                    <h3 class="text-xl font-bold mb-2">Upload New Images(s)</h3>                                        
-                                                                    <div class="row">                                                                                                                                                        
-                                                                        <div class="col-lg-3 col-md-6 mb-20">
-                                                                            <label class="mb-2 font-fifteen font-500">Image</label>
-                                                                            <input class="form-control" type="file" id="new_images" name="new_images[]" multiple accept="image/*">
-                                                                        </div>                                                                                                                                                                                                
-                                                                    </div>                                                                        
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="col-xl-12 col-lg-12 col-md-12">
-                                                            <button type="submit" name="edit_charity_project" class="btn btn-primary">Edit Project</button>
-                                                        </div>
-                                                    </div>                                        
+                                                        </div>                                                                                                                                                    
+                                                    </div>   
+                                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                                        <button type="submit" name="delete_project_btn" class="btn btn-primary">Delete Project</button>
+                                                    </div>                                     
                                                 </div>
                                             </div>
                                         </div>                                        

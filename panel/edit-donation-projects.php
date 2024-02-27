@@ -2,7 +2,7 @@
     session_start();
     include ("config.php");
 
-    $sql = "SELECT * FROM projects";
+    $sql = "SELECT * FROM projectx";
     $result = mysqli_query($conn, $sql);
 
 ?>

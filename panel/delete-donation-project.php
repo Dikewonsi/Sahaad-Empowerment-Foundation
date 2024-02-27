@@ -15,7 +15,7 @@
     }
 
     
-    $sql = "SELECT * FROM projects";
+    $sql = "SELECT * FROM projectx";
     $result = mysqli_query($conn, $sql);
 
 ?>

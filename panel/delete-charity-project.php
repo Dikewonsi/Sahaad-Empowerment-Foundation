@@ -2,7 +2,20 @@
     session_start();
     include ("config.php");
 
-    $sql = "SELECT * FROM projectx";
+    $num_per_page = 10;
+
+    if(isset($_GET['page']))
+    {
+        $page = $_GET['page'];
+
+    }
+    else
+    {
+        $page = 1;
+    }
+
+    
+    $sql = "SELECT * FROM projects";
     $result = mysqli_query($conn, $sql);
 
 ?>
@@ -13,10 +26,10 @@
     <!-- Meta Tag -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="real estate, property, property search, agent, apartments, booking, business, idx, housing, real estate agency, rental">
     <meta name="author" content="unicoder">
-    <title>Sahaad Empowerment Foundation - View Projects</title>
+    <title>Sahaad Empowerment Foundation - Delete Charity Project</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.png">
 
@@ -70,7 +83,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="my-3">All Projects</h3>
+                                    <h3 class="my-3">Delete Projects</h3>
                                 </div>
                             </div>
                             <div class="row">
@@ -81,12 +94,9 @@
                                                 <thead>
                                                     <tr class="bg-white">
                                                         <th>Project ID</th>
-                                                        <th>Type</th>
                                                         <th>Title</th>
-                                                        <th>Target</th>
-                                                        <th>Amount Raised</th>
-                                                        <th>Date Added</th>
-                                                        <th>Date Modified</th>
+                                                        <th>Location</th>
+                                                        <th>Date</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     <?php
@@ -96,16 +106,12 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td><?= $rows['pro_id']; ?></td>
-                                                        <td><?= $rows['type']; ?></td>
+                                                        <td><?= $rows['id']; ?></td>
                                                         <td><?= $rows['title']; ?></td>
-                                                        <td>&#x20A6;<?= number_format($rows['target']);?></td>
-                                                        <td>&#x20A6;<?= number_format($rows['amount_raised']);?></td>
-                                                        <td><?= $rows['date_added'];?></td>
-                                                        <td><?= $rows['date_modified'];?></td>
+                                                        <td><?= $rows['location'];?></td>
+                                                        <td><?= $rows['date'];?></td>
                                                         <td>
-                                                            <a href="edit-donation-project.php?id=<?= $rows['id']; ?>" class="text-primary me-4 mb-1"><i class="fas fa-edit"></i></a>
-                                                            <a href="delete-donation-project.php?id=<?= $rows['id']; ?>" class="text-primary mb-1"><i class="fas fa-trash"></i></a>
+                                                            <a href="delete-charity-project-page.php?id=<?= $rows['id']; ?>" class="text-primary me-4 mb-1"><i class="fas fa-trash"></i></a>                                                            
                                                         </td>
                                                     </tr>  
                                                     <?php
@@ -115,7 +121,6 @@
                                             </table>
                                             
                                         </div>
-                                       
                                     </div>
                                 </div>
                             </div>

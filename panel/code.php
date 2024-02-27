@@ -62,7 +62,7 @@
         // Update project details
         $sql_update_project = "UPDATE projects SET title='$title', body='$description' WHERE id=$project_id";
         if ($conn->query($sql_update_project) === TRUE) {
-            redirect("dashboard.php", "Charity Project Updated Successfully");
+            echo "Project details updated successfully.<br>";
         } else {
             echo "Error updating project details: " . $conn->error . "<br>";
         }
@@ -73,7 +73,7 @@
             foreach ($delete_images as $image_id) {
                 $sql_delete_image = "DELETE FROM project_images WHERE id=$image_id";
                 if ($conn->query($sql_delete_image) === TRUE) {
-                    redirect("dashboard.php", "Project Image Deleted Successfully");
+                    echo "Image deleted successfully.<br>";
                 } else {
                     echo "Error deleting image: " . $conn->error . "<br>";
                 }
@@ -82,7 +82,7 @@
 
         // Upload new images
         if (!empty($_FILES['new_images']['name'][0])) {
-            $target_dir = "../uploads/";
+            $target_dir = "./projects/";
             $uploaded_images = [];
             $num_files = count($_FILES['new_images']['name']);
             for ($i = 0; $i < $num_files; $i++) {
@@ -100,13 +100,14 @@
                 foreach ($uploaded_images as $image_name) {
                     $sql_insert_image = "INSERT INTO project_images (project_id, image_path) VALUES ($project_id, '$image_name')";
                     if ($conn->query($sql_insert_image) === TRUE) {
-                        redirect("dashboard.php", "Image Added Successfully");
+                        echo "Image inserted into database successfully.<br>";
                     } else {
                         echo "Error inserting image into database: " . $conn->error . "<br>";
                     }
                 }
             }
         }
+        redirect("dashboard.php", "Charity Project Updated Successfully");
     }
 
     else if (isset($_POST['add_new_donation_project']))
@@ -213,7 +214,26 @@
             {
                 redirect("delete-donation-page.php?id=$id", "Something went wrong");
             }
-        }    
+        }  
+    
+    else if (isset($_POST['delete_donation_project_btn']))
+        {
+            $id = mysqli_escape_string($conn, $_POST['id']); 
+
+            $delete_query = "DELETE FROM projectx WHERE id = '$id' ";
+            $delete_query_run = mysqli_query($conn, $delete_query);
+
+            if ($delete_query)
+            {                
+
+                redirect("dashboard.php", "Project Has Been Deleted");      
+            }
+            else
+            {
+                redirect("delete-donation-page.php?id=$id", "Something went wrong");
+            }
+        }
+      
 
     else if (isset($_POST['update_admin_btn']))
         {   

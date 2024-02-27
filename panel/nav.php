@@ -18,6 +18,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="view-charity-projects.php"><i class="fas fa-eye  pe-2"></i> View Charity Projects</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="edit-charity-projects.php"><i class="fas fa-pen  pe-2"></i> Edit Charity Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="delete-charity-project.php"><i class="fas fa-trash  pe-2"></i> Delete Charity Project</a>
+                </li>
                 <li class="text-white pb-2 pt-4 px-20">Donation Projects</li>
                 <li class="nav-item">
                     <a class="nav-link" href="add-donation-project.php"><i class="fas fa-plus  pe-2"></i> Add Donation Project</a>
@@ -26,7 +32,7 @@
                     <a class="nav-link" href="view-donation-projects.php"><i class="fas fa-eye  pe-2"></i> View Donation Projects</a>
                 </li>                                  
                 <li class="nav-item">
-                    <a class="nav-link" href="edit-projects.php"><i class="fas fa-pen  pe-2"></i> Edit Donation Projects</a>
+                    <a class="nav-link" href="edit-donation-projects.php"><i class="fas fa-pen  pe-2"></i> Edit Donation Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="delete-donation-project.php"><i class="fas fa-trash  pe-2"></i> Delete Donation Project</a>
