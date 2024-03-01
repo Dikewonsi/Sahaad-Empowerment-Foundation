@@ -112,21 +112,25 @@
                                                                 <div class="border rounded bg-white p-30">
                                                                     <h3 class="text-xl font-bold mb-2">Current Image(s)</h3>
                                                                     <?php
-                                                                    // Fetch current images
-                                                                    $sql_images = "SELECT * FROM project_images WHERE project_id = $id";
-                                                                    $result_images = $conn->query($sql_images);
+                                                                        // Fetch current images
+                                                                        $sql_images = "SELECT * FROM project_images WHERE project_id = $id";
+                                                                        $result_images = $conn->query($sql_images);
 
-                                                                    if ($result_images->num_rows > 0) {
-                                                                        while ($row_image = $result_images->fetch_assoc()) {
-                                                                            echo "<div class='mb-4'>";
-                                                                            echo "<img src='projects/" . $row_image['image_path'] . "' alt='Project Image'  class='w-32 h-auto'>";
-                                                                            echo "<input type='checkbox' name='delete_images[]' value='" . $row_image['id'] . "' class='ml-2'>";
-                                                                            echo "<label class='ml-1'>Delete</label>";
-                                                                            echo "</div>";
+                                                                        if ($result_images->num_rows > 0)
+                                                                        {
+                                                                            while ($row_image = $result_images->fetch_assoc())
+                                                                            {
+                                                                                echo "<div class='mb-4'>";
+                                                                                    echo "<img src='projects/" . $row_image['image_path'] . "' alt='Project Image'  class='w-32 h-auto'>";
+                                                                                    echo    "<input type='checkbox' name='delete_images[]' value='" . $row_image['id'] . "' class='ml-2'>";
+                                                                                    echo "<label class='ml-1'>Delete</label>";
+                                                                                echo "</div>";
+                                                                            }
                                                                         }
-                                                                    } else {
-                                                                        echo "No images available for this project.";
-                                                                    }
+                                                                        else
+                                                                        {
+                                                                            echo "No images available for this project.";
+                                                                        }
                                                                     ?>
                                                                 </div>
                                                             </div>

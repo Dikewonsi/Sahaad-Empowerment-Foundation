@@ -99,7 +99,7 @@
                                                         <td><?= $rows['date'];?></td>
                                                         <td>
                                                             <a href="edit-charity-project.php?id=<?= $rows['id']; ?>" class="text-primary me-4 mb-1"><i class="fas fa-edit"></i></a>
-                                                            <a href="delete-donation-project.php?id=<?= $rows['id']; ?>" class="text-primary mb-1"><i class="fas fa-trash"></i></a>
+                                                            <a href="delete-charity-project.php?id=<?= $rows['id']; ?>" class="text-primary mb-1"><i class="fas fa-trash"></i></a>
                                                         </td>
                                                     </tr>  
                                                     <?php

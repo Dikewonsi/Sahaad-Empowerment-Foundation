@@ -292,34 +292,42 @@
                         </div>
                         <div class="row g-4">
                             <?php 
-                                $query = "SELECT * FROM projects ORDER BY date_added DESC LIMIT 3  ";
-                                $query_run = mysqli_query($conn, $query);
+                                 // Fetch projects with their images
+                                    $sql = "SELECT p.id, p.title, p.body, GROUP_CONCAT(pi.image_path) AS image_paths 
+                                    FROM projects p 
+                                    LEFT JOIN project_images pi ON p.id = pi.project_id 
+                                    GROUP BY p.id";
+                                    $result = $conn->query($sql);
 
-                                if (mysqli_num_rows($query_run) > 0)
+                                if (mysqli_num_rows($result) > 0)
                                 {
-                                    foreach ($query_run as $data)
+                                    foreach ($result as $data)
                                     {
                             ?>                                                                          
                                     <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
                                         <div class="cause__item">
                                             <div class="cause__image image">
-                                                <img src="panel/images/<?= $data['image']; ?>">
-                                                <span class="cause-tag"><?= $data['type']; ?></span>
+                                                <?php
+                                                    // Display first image if available
+                                                    if (!empty($data['image_paths'])) {
+                                                        $images = explode(",", $data['image_paths']);
+                                                        $first_image = trim($images[0]);
+                                                        echo "<img src='panel/projects/" . $first_image . "' alt='Project Image' class='w-32 h-auto mb-2'>";
+                                                    } else {
+                                                        echo "<p>No images available for this project.</p>";
+                                                    }
+                                                ?>                                                                                                
                                             </div>
                                             <div class="cause__content">
-                                                <h4 class="mb-4 mt-20"><a href="donate.php" class="primary-hover"><?= $data['title']; ?></a></h4>
-                                                <div class="progress-area">                                                    
-                                                    <div class="progress__goal mt-15">
-                                                        <h6>Goal : <span>&#x20A6;<?= number_format($data['target']); ?></span></h6>
-                                                        <h6>Raised : <span>&#x20A6;<?= number_format($data['amount_raised']); ?></span></h6>
-                                                    </div>
+                                                <h4 class="mb-4 mt-20"><a href="view-project.php?id=<?= $data['id']; ?> " class="primary-hover"><?= $data['title']; ?></a></h4>
+                                                <div class="progress-area">                                                                                                        
                                                     <div class="btn-three mt-30">
                                                         <span class="btn-circle">
                                                         </span>
-                                                        <a href="donate.php" class="btn-inner">
+                                                        <a href="view-project.php?id=<?= $data['id']; ?>" class="btn-inner">
                                                             <span class="btn-text">
-                                                                DONATE NOW
-                                                            </span>
+                                                                VIEW PROJECT
+                                                            </span>                                                            
                                                         </a>
                                                     </div>
                                                 </div>
@@ -328,7 +336,7 @@
                                     </div>                                                                            
                             <?php
                                     }
-                                }
+                                }                            
                             ?>
                         </div>
                     </div>
@@ -338,7 +346,7 @@
             }
             else
             {
-                $loc= "null";
+                $null = 'nothing to show';
             }                                                                    
         ?>
 
